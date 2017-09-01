@@ -1,0 +1,12 @@
+html,
+body,
+#container {
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  height: 90%;
+  width: 100%;
+  background-color: white;
+}

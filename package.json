@@ -1,0 +1,22 @@
+{
+  "name": "turf-js-exploration",
+  "version": "1.0.0",
+  "description": "node application to explore turf js capabilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srungta/turf-js-exploration.git"
+  },
+  "author": "Shaswat Rungta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srungta/turf-js-exploration/issues"
+  },
+  "homepage": "https://github.com/srungta/turf-js-exploration#readme",
+  "dependencies": {
+    "leaflet": "^1.2.0"
+  }
+}
