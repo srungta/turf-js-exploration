@@ -2,24 +2,24 @@ html,
 body,
 #container {
   height: 100%;
-  width: 100%;
-  text-align: center;
   margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 #map {
+  background-color: #F85959;
   height: 90%;
   width: 100%;
-  background-color: #F85959;
 }
 
 #button{
-  margin: auto;
-  padding: 10px;
-  font-size: larger;
-  color: white;
   background-color: cornflowerblue;
   border: 0;
+  color: white;
+  font-size: larger;
+  margin: auto;
+  padding: 10px;
 }
 
 /*
@@ -32,14 +32,14 @@ body,
   text-align: center;
 }
 #drop_zone{
-  border: 2px dashed #bbb;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  border: 2px dashed #bbb;
+  color: #bbb;
+  font: 20pt bold 'Vollkorn';
   padding: 25px;
   text-align: center;
-  font: 20pt bold 'Vollkorn';
-  color: #bbb;
 }
 
 #output_zone_container{
@@ -50,12 +50,12 @@ body,
 }
 
 #output_zone{
-  border: 2px dashed #bbb;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  border: 2px dashed #bbb;
+  color: #bbb;
+  font: 20pt bold 'Vollkorn';
   padding: 25px;
   text-align: center;
-  font: 20pt bold 'Vollkorn';
-  color: #bbb;
 }
