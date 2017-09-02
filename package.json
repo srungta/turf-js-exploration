@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/srungta/turf-js-exploration#readme",
   "dependencies": {
+    "jquery": "^3.2.1",
     "leaflet": "^1.2.0"
   }
 }

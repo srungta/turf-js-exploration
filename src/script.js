@@ -1,5 +1,18 @@
 var map = null;
-var space_geoJSON = mapgeojson;
+var space_geoJSON = (function() {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': "mapfile.json",
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
+    });
+    return json;
+})();
+
 function renderMap() {
     //Generate map object
     map = L.map("map", {
