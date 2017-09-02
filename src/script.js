@@ -43,8 +43,8 @@ function renderMap() {
     var defaultRoomStyle = {
         "color": "#636363",
         "weight": 1,
-        "opacity": 1,
-        "fillOpacity": 0
+        "opacity": 0,
+        "fillOpacity": 1
     };
     //Add GeoJSON
     L.geoJson(space_geoJSON, {
