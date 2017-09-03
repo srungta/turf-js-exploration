@@ -20,22 +20,15 @@ function handleFileSelect(evt) {
     var files = evt.dataTransfer.files; // FileList object.
 
     // files is a FileList of File objects. List some properties.
-    var output = [];
-    for (var i = 0, f; f = files[i]; i++) {
+    f = files[0];
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        space_geoJSON = JSON.parse(e.target.result);
+        renderMap();
+    };
 
-        var reader = new FileReader();
-
-        // Closure to capture the file information.
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Render thumbnail.
-                document.getElementById('output').innerHTML = e.target.result;
-            };
-        })(f);
-
-        // Read in the image file as a data URL.
-        reader.readAsText(f);
-    }
+    // Read in the image file as a data URL.
+    reader.readAsText(f);
 }
 
 function handleDragOver(evt) {
