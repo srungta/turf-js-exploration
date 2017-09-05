@@ -79,8 +79,6 @@ fs.writeFileSync('./concave_hull.geojson', JSON.stringify(convexHull));
 // Finally, we'll just log a nice little message to tell you that it all worked.
 console.log('saved convex_hull.geojson');
 
-
-
 function getPoints(map) {
     var result = {};
     result.type = "FeatureCollection";
