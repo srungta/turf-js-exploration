@@ -33,7 +33,7 @@ function renderMap() {
             "color": "#636363",
             "weight": 1,
             "opacity": 0,
-            "fillOpacity": 1
+            "fillOpacity": 0.5
         };
         //Add GeoJSON
         L.geoJson(space_geoJSON, {

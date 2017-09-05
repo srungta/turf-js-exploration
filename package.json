@@ -4,7 +4,8 @@
   "description": "node application to explore turf js capabilities",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run open",
+    "open": "concurrently \"http-server -a localhost -p 1234\" \"sleepms 1000 && open http://localhost:1234/build\""
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,14 @@
   },
   "homepage": "https://github.com/srungta/turf-js-exploration#readme",
   "dependencies": {
+    "@turf/turf": "^4.6.1",
     "jquery": "^3.2.1",
-    "leaflet": "^1.2.0"
+    "leaflet": "^1.2.0",
+    "turf-merge": "^1.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "http-server": "^0.10.0",
+    "sleep-ms": "^2.0.1"
   }
 }
