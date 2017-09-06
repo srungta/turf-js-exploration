@@ -1,11 +1,3 @@
-// var turf = require('@turf/turf');
-// var fs = require('fs');
-// var map = JSON.parse(fs.readFileSync('./src/assets/mapfile.json', 'utf8'));
-// var union = turf.union(map.features);
-
-// console.log(map);
-
-
 // This is a simple demonstration of how to use turfjs to process
 // data with a node script. See the README.md file for full instructions
 // on how to install node and run this script: these code comments will describe,
@@ -20,8 +12,7 @@
 // the following line, the variable `turf` becomes the turf library,
 // including all of its component functions like `turf.extent` and
 // `turf.buffer`
-var turf = require('@turf/turf');
-var turfMerge = require('turf-merge');
+var turf = require('turf');
 
 // The only other library than turf we'll use in this example is the 'fs'
 // module. This is short for 'filesystem' and gives us functions that
@@ -36,7 +27,7 @@ var fs = require('fs');
 // Let's load the data. In the 'input' directory, there's a file called
 // 'random.geojson' that includes random points. The fs.readFileSync()
 // command lets us read that file into a variable in node:
-var mapFile = fs.readFileSync('./src/assets/mapfile.json', 'utf8');
+var mapFile = fs.readFileSync('./src/assets/a.json', 'utf8');
 
 // This loads the file into a string, but you haven't told node how to
 // understand that value: it could geographic data, or a music file, or
@@ -60,8 +51,21 @@ mapFile = JSON.parse(mapFile);
 //
 // The turf.convex function simply takes a GeoJOSN object as input and
 // returns one as output
-var points = getPoints(mapFile);
-var convexHull = turf.concave(points, 10000, 'miles');
+
+//Create a union for all objects
+var first = mapFile.features[0];
+var merged = turf.union(first, first);
+mapFile.features.forEach(function (element) {
+    try {
+        merged = turf.union(merged, element);
+    } catch (error) {
+        console.log("error at entity");
+    }
+}, this);
+mapFile.features = [merged];
+
+// var points = getPoints(mapFile);
+// var convexHull = turf.concave(points, 10000, 'miles');
 
 // Okay, so now we've done our computation, it's time to save the results.
 // This is the 'fs' module from before, but instead of readFileSync() to
@@ -70,7 +74,7 @@ var convexHull = turf.concave(points, 10000, 'miles');
 // We'll also use the JSON methods again, this time to turn our
 // JavaScript variable back into a string of formatted data
 // so that it can be saved.
-fs.writeFileSync('./concave_hull.geojson', JSON.stringify(convexHull));
+fs.writeFileSync('./src/assets/output.json', JSON.stringify(mapFile));
 
 // And there we are: you can look at these files by finding them on your computer
 // and opening them in a system like geojson.io, TileMill, QGIS, or ArcGIS:

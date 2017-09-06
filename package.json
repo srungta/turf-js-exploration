@@ -21,7 +21,7 @@
     "@turf/turf": "^4.6.1",
     "jquery": "^3.2.1",
     "leaflet": "^1.2.0",
-    "turf-merge": "^1.0.2"
+    "turf": "^3.0.14"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",

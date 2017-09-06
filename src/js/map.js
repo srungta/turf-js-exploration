@@ -48,7 +48,9 @@ function renderMap() {
                     y = -newcoords[1];
                 }
                 return (map.unproject([x, y], map.getMaxZoom() - 1));
-            }
+            },
+            onEachFeature: function (feature, layer) {
+            },
         }).addTo(map);
     } else {
         console.log("Space Geo Json is not available.");
