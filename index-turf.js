@@ -1,7 +1,7 @@
 var turf = require('turf');
 var fs = require('fs');
 
-var mapFile = fs.readFileSync('./src/assets/a.json', 'utf8');
+var mapFile = fs.readFileSync('./src/assets/mapfile.json', 'utf8');
 mapFile = JSON.parse(mapFile);
 
 //Create a union for all objects
@@ -14,6 +14,8 @@ mapFile.features.forEach(function (element) {
         console.log("error at entity");
     }
 }, this);
+
+merged.properties.type = "Outline";
 mapFile.features = [merged];
 
 

@@ -7,10 +7,11 @@ body,
   width: 100%;
 }
 
-#map {
+#map {  
+  box-sizing: border-box;
   background-color: #DEC2C2;
-  height: 90%;
-  width: 100%;
+  height: 80%;
+  margin: 20px;
 }
 
 #button{

@@ -4,6 +4,7 @@ var space_geoJSON = null;
 function renderMap() {
     if (space_geoJSON) {
         //Generate map object
+        clearMap();
         map = L.map("map", {
             minZoom: 1,
             maxZoom: 6,
@@ -33,11 +34,16 @@ function renderMap() {
             "color": "#636363",
             "weight": 1,
             "opacity": 0,
-            "fillOpacity": 0.5
+            "fillOpacity": 1
         };
         //Add GeoJSON
         L.geoJson(space_geoJSON, {
-            style: defaultRoomStyle,
+            style: function (feature) {
+                switch (feature.properties.type) {
+                    case 'Outline': return { color: "#ff0000" };
+                    default: return defaultRoomStyle;
+                }
+            },
             coordsToLatLng: function (newcoords) {
                 var x = newcoords[0];
                 var y = newcoords[1];
@@ -58,6 +64,7 @@ function renderMap() {
 }
 
 function clearMap() {
+    if (!map) return;
     map.remove();
     map = null;
 }
